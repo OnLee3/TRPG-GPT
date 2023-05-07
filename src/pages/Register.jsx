@@ -6,13 +6,13 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await register(email, password);
-      history.push("/login");
+      navigate("/login");
     } catch (err) {
       setError("Registration failed.");
     }

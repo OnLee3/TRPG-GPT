@@ -6,13 +6,13 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
-      history.push("/game-lobby");
+      navigate("/game-lobby");
     } catch (err) {
       setError("Login failed.");
     }

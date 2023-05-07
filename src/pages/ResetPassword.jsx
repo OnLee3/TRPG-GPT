@@ -6,7 +6,7 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState(null);
   const { token } = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const ResetPassword = () => {
       setMessage(
         "Password has been reset successfully. You can now log in with your new password."
       );
-      history.push("/login");
+      navigate("/login");
     } catch (err) {
       setMessage("Failed to reset password. Please try again later.");
     }
