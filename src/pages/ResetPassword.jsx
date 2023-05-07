@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { resetPassword } from "../services/apiService";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [message, setMessage] = useState(null);
   const { token } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
