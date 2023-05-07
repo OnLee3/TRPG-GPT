@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/apiService";
+import {
+  AuthForm,
+  Container,
+  ErrorMessage,
+  FormButton,
+  FormInput,
+  FormLabel,
+  FormTitle,
+} from "../styles/authStyles";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,25 +28,25 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label>Email:</label>
-        <input
+    <Container>
+      <FormTitle>Login</FormTitle>
+      <AuthForm onSubmit={handleSubmit}>
+        <FormLabel>Email:</FormLabel>
+        <FormInput
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Password:</label>
-        <input
+        <FormLabel>Password:</FormLabel>
+        <FormInput
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {error && <p>{error}</p>}
-        <button type="submit">Login</button>
-      </form>
-    </div>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+        <FormButton type="submit">Login</FormButton>
+      </AuthForm>
+    </Container>
   );
 };
 

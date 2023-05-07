@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { resetPassword } from "../services/apiService";
+import {
+  AuthForm,
+  Container,
+  ErrorMessage,
+  FormButton,
+  FormInput,
+  FormLabel,
+  FormTitle,
+} from "../styles/authStyles";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -22,19 +31,19 @@ const ResetPassword = () => {
   };
 
   return (
-    <div>
-      <h1>Reset Password</h1>
-      <form onSubmit={handleSubmit}>
-        <label>New Password:</label>
-        <input
+    <Container>
+      <FormTitle>Reset Password</FormTitle>
+      <AuthForm onSubmit={handleSubmit}>
+        <FormLabel>New Password:</FormLabel>
+        <FormInput
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
-        {message && <p>{message}</p>}
-        <button type="submit">Reset Password</button>
-      </form>
-    </div>
+        {message && <ErrorMessage>{message}</ErrorMessage>}
+        <FormButton type="submit">Reset Password</FormButton>
+      </AuthForm>
+    </Container>
   );
 };
 
