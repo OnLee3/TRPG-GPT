@@ -14,7 +14,7 @@ const GameLobby = () => {
   }, []);
 
   const handleCreateSession = async () => {
-    const newGameSession = await createGameSession();
+    const newGameSession = await createGameSession("New Game Session");
     setGameSessions([...gameSessions, newGameSession]);
   };
 
@@ -29,7 +29,7 @@ const GameLobby = () => {
       <ul>
         {gameSessions.map((gameSession) => (
           <GameSession
-            key={gameSession.id}
+            key={gameSession._id}
             gameSession={gameSession}
             onJoin={handleJoinSession}
           />

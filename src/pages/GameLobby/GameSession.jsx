@@ -2,10 +2,10 @@ import React from "react";
 
 const GameSession = ({ gameSession, onJoin }) => {
   return (
-    <li>
-      <h2>{gameSession.name}</h2>
+    <li key={gameSession._id}>
+      <h2>{gameSession.sessionName}</h2>
       <p>Players: {gameSession.players.length}</p>
-      <button onClick={() => onJoin(gameSession.id)}>Join Game Session</button>
+      <button onClick={() => onJoin(gameSession._id)}>Join Game Session</button>
     </li>
   );
 };
