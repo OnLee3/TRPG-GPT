@@ -31,6 +31,7 @@ export const register = async (email, password) => {
 export const login = async (email, password) => {
   const response = await apiClient.post("/auth/login", { email, password });
   setAuthToken(response.data.token);
+  localStorage.setItem("user_id", response.data.user.id);
   return response.data;
 };
 

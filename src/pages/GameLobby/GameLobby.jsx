@@ -19,7 +19,16 @@ const GameLobby = () => {
   };
 
   const handleJoinSession = async (sessionId) => {
-    await joinGameSession(sessionId);
+    const gameSession = gameSessions.find(
+      (session) => session._id === sessionId
+    );
+    const userId = localStorage.getItem("user_id");
+
+    if (gameSession.players.includes(userId)) {
+      alert("You have already joined this game session.");
+    } else {
+      await joinGameSession(sessionId);
+    }
   };
 
   return (
