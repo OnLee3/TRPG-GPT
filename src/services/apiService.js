@@ -2,18 +2,24 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "http://localhost:27017/api",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("auth_token")}`,
+  },
 });
 
 export const setAuthToken = (token) => {
   if (token) {
     apiClient.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    localStorage.setItem("auth_token", token);
   } else {
     delete apiClient.defaults.headers.common["Authorization"];
+    localStorage.removeItem("auth_token");
   }
 };
 
 export const isAuthenticated = () => {
-  const token = apiClient.defaults.headers.common["Authorization"];
+  const token = localStorage.getItem("auth_token");
   return !!token;
 };
 
