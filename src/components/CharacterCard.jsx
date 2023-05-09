@@ -1,14 +1,19 @@
 import React from "react";
-import Typography from "./DesignSystem/Typography";
-import Container from "./DesignSystem/Container";
+import {
+  CharacterCardBody,
+  CharacterCardTitle,
+  CharacterCard as Container,
+} from "../styles/characterStyles.js";
 
 const CharacterCard = ({ character }) => {
   return (
     <Container>
-      <Typography variant="heading" level={5}>
+      <CharacterCardTitle variant="heading" level={6}>
         {character.name}
-      </Typography>
-      {/* Display character attributes, skills, and equipment */}
+      </CharacterCardTitle>
+      <CharacterCardBody>
+        {/* Display character attributes, skills, and equipment */}
+      </CharacterCardBody>
     </Container>
   );
 };

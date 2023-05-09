@@ -1,6 +1,6 @@
 import React from "react";
 import CharacterCard from "./CharacterCard";
-import Container from "./DesignSystem/Container";
+import { CharacterList as Container } from "../styles/characterStyles.js";
 
 const CharacterList = ({ characters }) => {
   return (
