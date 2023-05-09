@@ -11,6 +11,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import GameLobby from "./pages/GameLobby/GameLobby";
 import { isAuthenticated } from "./services/apiService";
+import CharacterManagement from "./pages/CharacterManagement/CharacterManagement";
+import CharacterCreation from "./pages/CharacterManagement/CharacterCreation";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           path="/game-lobby"
           element={isAuthenticated() ? <GameLobby /> : <Navigate to="/login" />}
         />
+        <Route path="/characters" element={<CharacterManagement />} />
+        <Route path="/characters/create" element={<CharacterCreation />} />
       </Routes>
     </Router>
   );
