@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { resetPassword } from "../services/apiService";
-import {
-  AuthForm,
-  Container,
-  ErrorMessage,
-  FormButton,
-  FormInput,
-  FormLabel,
-  FormTitle,
-} from "../styles/authStyles";
+import Container from "../components/DesignSystem/Container";
+import Typography from "../components/DesignSystem/Typography";
+import Input from "../components/DesignSystem/Input";
+import Button from "../components/DesignSystem/Button";
+import Form from "../components/DesignSystem/Form";
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState("");
@@ -32,17 +28,19 @@ const ResetPassword = () => {
 
   return (
     <Container>
-      <FormTitle>Reset Password</FormTitle>
-      <AuthForm onSubmit={handleSubmit}>
-        <FormLabel>New Password:</FormLabel>
-        <FormInput
+      <Typography variant="heading" level={4}>
+        Reset Password
+      </Typography>
+      <Form onSubmit={handleSubmit}>
+        <Typography variant="label">New Password:</Typography>
+        <Input
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
-        {message && <ErrorMessage>{message}</ErrorMessage>}
-        <FormButton type="submit">Reset Password</FormButton>
-      </AuthForm>
+        {message && <Typography variant="error">{message}</Typography>}
+        <Button type="submit">Reset Password</Button>
+      </Form>
     </Container>
   );
 };
