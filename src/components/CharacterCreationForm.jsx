@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createCharacter } from "../services/apiService";
+import Typography from "./DesignSystem/Typography";
+import Input from "./DesignSystem/Input";
+import Button from "./DesignSystem/Button";
+import Form from "./DesignSystem/Form";
 
 const CharacterCreationForm = () => {
   const navigate = useNavigate();
@@ -20,18 +24,18 @@ const CharacterCreationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <Form onSubmit={handleSubmit}>
+      <Typography variant="label">
         Character Name:
-        <input
+        <Input
           type="text"
           value={characterName}
           onChange={(e) => setCharacterName(e.target.value)}
         />
-      </label>
+      </Typography>
       {/* Add other form elements for character attributes, skills, and equipment */}
-      <button type="submit">Create Character</button>
-    </form>
+      <Button type="submit">Create Character</Button>
+    </Form>
   );
 };
 

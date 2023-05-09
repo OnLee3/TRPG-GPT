@@ -5,6 +5,9 @@ import {
   getGameSessions,
 } from "../../services/apiService";
 import GameSession from "./GameSession";
+import Typography from "../../components/DesignSystem/Typography";
+import Button from "../../components/DesignSystem/Button";
+import Container from "../../components/DesignSystem/Container";
 
 const GameLobby = () => {
   const [gameSessions, setGameSessions] = useState([]);
@@ -32,9 +35,11 @@ const GameLobby = () => {
   };
 
   return (
-    <div>
-      <h1>Game Lobby</h1>
-      <button onClick={handleCreateSession}>Create Game Session</button>
+    <Container>
+      <Typography variant="heading" level={4}>
+        Game Lobby
+      </Typography>
+      <Button onClick={handleCreateSession}>Create Game Session</Button>
       <ul>
         {gameSessions.map((gameSession) => (
           <GameSession
@@ -44,7 +49,7 @@ const GameLobby = () => {
           />
         ))}
       </ul>
-    </div>
+    </Container>
   );
 };
 

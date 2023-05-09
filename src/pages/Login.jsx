@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/apiService";
-import {
-  AuthForm,
-  Container,
-  ErrorMessage,
-  FormButton,
-  FormInput,
-  FormLabel,
-  FormTitle,
-} from "../styles/authStyles";
+import Container from "../components/DesignSystem/Container";
+import Typography from "../components/DesignSystem/Typography";
+import Input from "../components/DesignSystem/Input";
+import Button from "../components/DesignSystem/Button";
+import Form from "../components/DesignSystem/Form";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,23 +25,25 @@ const Login = () => {
 
   return (
     <Container>
-      <FormTitle>Login</FormTitle>
-      <AuthForm onSubmit={handleSubmit}>
-        <FormLabel>Email:</FormLabel>
-        <FormInput
+      <Typography variant="heading" level={4}>
+        Login
+      </Typography>
+      <Form onSubmit={handleSubmit}>
+        <Typography variant="label">Email:</Typography>
+        <Input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <FormLabel>Password:</FormLabel>
-        <FormInput
+        <Typography variant="label">Password:</Typography>
+        <Input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <FormButton type="submit">Login</FormButton>
-      </AuthForm>
+        {error && <Typography variant="error">{error}</Typography>}
+        <Button type="submit">Login</Button>
+      </Form>
     </Container>
   );
 };

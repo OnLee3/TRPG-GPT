@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 import { requestPasswordReset } from "../services/apiService";
-import {
-  Container,
-  AuthForm,
-  FormLabel,
-  FormInput,
-  ErrorMessage,
-  FormButton,
-  FormTitle,
-} from "../styles/authStyles";
+import Container from "../components/DesignSystem/Container";
+import Typography from "../components/DesignSystem/Typography";
+import Button from "../components/DesignSystem/Button";
+import Input from "../components/DesignSystem/Input";
+import Form from "../components/DesignSystem/Form";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -26,17 +22,19 @@ const ForgotPassword = () => {
 
   return (
     <Container>
-      <FormTitle>Forgot Password</FormTitle>
-      <AuthForm onSubmit={handleSubmit}>
-        <FormLabel>Email:</FormLabel>
-        <FormInput
+      <Typography variant="heading" level={4}>
+        Forgot Password
+      </Typography>
+      <Form onSubmit={handleSubmit}>
+        <Typography variant="label">Email:</Typography>
+        <Input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        {message && <ErrorMessage>{message}</ErrorMessage>}
-        <FormButton type="submit">Send Reset Email</FormButton>
-      </AuthForm>
+        {message && <Typography variant="error">{message}</Typography>}
+        <Button type="submit">Send Reset Email</Button>
+      </Form>
     </Container>
   );
 };

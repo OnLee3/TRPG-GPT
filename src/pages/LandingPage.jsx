@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Typography from "../components/DesignSystem/Typography";
+import Container from "../components/DesignSystem/Container";
 
 const LandingPage = () => {
   return (
-    <div>
-      <h1>Welcome to Our Game</h1>
+    <Container>
+      <Typography variant="heading" level={4}>
+        Welcome to Our Game
+      </Typography>
       <nav>
         <ul>
           <li>
@@ -30,7 +34,7 @@ const LandingPage = () => {
           </li>
         </ul>
       </nav>
-    </div>
+    </Container>
   );
 };
 
