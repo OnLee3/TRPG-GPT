@@ -13,11 +13,13 @@ import GameLobby from "./pages/GameLobby/GameLobby";
 import { isAuthenticated } from "./services/apiService";
 import CharacterManagement from "./pages/CharacterManagement/CharacterManagement";
 import CharacterCreation from "./pages/CharacterManagement/CharacterCreation";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
