@@ -64,6 +64,11 @@ export const getGameSessions = async () => {
   return response.data;
 };
 
+export const getGameSession = async (id) => {
+  const response = await apiClient.get(`/game-session/${id}`);
+  return response.data;
+};
+
 export const createCharacter = async (characterData) => {
   const response = await apiClient.post("/characters/create", characterData);
   return response.data;

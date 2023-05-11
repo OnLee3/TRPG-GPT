@@ -8,9 +8,11 @@ import GameSession from "./GameSession";
 import Typography from "../../components/DesignSystem/Typography";
 import Button from "../../components/DesignSystem/Button";
 import Container from "../../components/DesignSystem/Container";
+import { useNavigate } from "react-router-dom";
 
 const GameLobby = () => {
   const [gameSessions, setGameSessions] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getGameSessions().then(setGameSessions);
@@ -32,6 +34,7 @@ const GameLobby = () => {
     } else {
       await joinGameSession(sessionId);
     }
+    navigate(`/game/${sessionId}`);
   };
 
   return (

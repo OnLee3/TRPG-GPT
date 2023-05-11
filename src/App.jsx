@@ -14,6 +14,7 @@ import { isAuthenticated } from "./services/apiService";
 import CharacterManagement from "./pages/CharacterManagement/CharacterManagement";
 import CharacterCreation from "./pages/CharacterManagement/CharacterCreation";
 import LandingPage from "./pages/LandingPage";
+import Game from "./components/Game/Game";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         />
         <Route path="/characters" element={<CharacterManagement />} />
         <Route path="/characters/create" element={<CharacterCreation />} />
+        <Route path="/game/:gameId" element={<Game />} />
       </Routes>
     </Router>
   );
